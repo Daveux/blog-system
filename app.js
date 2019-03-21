@@ -6,6 +6,14 @@ let logger = require('morgan');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let session = require('express-session');
+let multer = require('multer');
+let moment = require('moment');
+let expressValidator = require('express-validator');
+
+let db = require('monk')('localhost/blog-system');
+
+let routes = 
+
 
 let app = express();
 
@@ -36,6 +44,10 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+});
+app.use(function(req, res, next){
+  req.db = db;
+  next();
 });
 
 module.exports = app;
