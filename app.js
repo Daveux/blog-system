@@ -12,7 +12,8 @@ let expressValidator = require('express-validator');
 
 let db = require('monk')('localhost/blog-system');
 
-let routes = 
+// let routes = require('./routes/index');
+// let users = require('./routes/users')
 
 
 let app = express();
@@ -26,6 +27,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//Express Validator
+app.use(expressValidator({
+    errorFormatter: function(param, msg, value) {
+      let namespace = param.split('.')
+          , root = namespace.shift()
+          , formParam = root;
+      while (namespace.length) {
+        form
+      }
+    }
+}));
+//Connect-Flash
+app.use(flash());
+app.use(function(req, res, next){
+  res.locals.messages =require('express-messages')(req,res);
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
