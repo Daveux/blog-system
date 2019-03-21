@@ -7,6 +7,7 @@ let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
 let session = require('express-session');
 let multer = require('multer');
+let upload = multer({ dest: 'uploads/' });
 let moment = require('moment');
 let expressValidator = require('express-validator');
 
@@ -28,6 +29,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Express Session
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+}));
+
 //Express Validator
 app.use(expressValidator({
     errorFormatter: function(param, msg, value) {
@@ -35,8 +43,13 @@ app.use(expressValidator({
           , root = namespace.shift()
           , formParam = root;
       while (namespace.length) {
-        form
+        formParam += '[' + namespace.shift() + ']';
       }
+      return {
+        param: formParam,
+          msg: msg,
+          value: value
+      };
     }
 }));
 //Connect-Flash
