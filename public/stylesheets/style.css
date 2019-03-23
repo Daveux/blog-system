@@ -27,3 +27,40 @@ ul{
 a {
   color: #00B7FF;
 }
+h1,h2,h3,p{
+  padding:5px 0;
+  margin-bottom:0;
+}
+
+p{
+  margin:0;
+}
+a {
+  color: #00B7FF;
+}
+
+nav{
+  background:#404137;
+  color:#fff;
+  overflow:auto;
+  height:40px;
+  padding:20px 0 0 10px;
+  font-size: 18px;
+}
+nav li{
+  float:left;
+  list-style:none;
+}
+
+nav a{
+  padding:10px;
+  margin:0 10px;
+  color:#fff;
+  text-decoration:none;
+}
+
+nav a.current, nav a:hover{
+  background: #83cd29;
+  color:#000;
+}
+
