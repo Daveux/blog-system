@@ -3,11 +3,13 @@ body {
   background: #f4f4f4;
   color:#666;
 }
+
 .logo{
   text-align: center;
   margin:auto;
   display:block;
 }
+
 .container{
   width:750px;
   border: 1px solid #ccc;
@@ -15,6 +17,7 @@ body {
   padding:20px;
   border-top: #83cd39 3px solid;
 }
+
 .clr{
   clear: both;
 }
@@ -24,9 +27,6 @@ ul{
   margin:0;
 }
 
-a {
-  color: #00B7FF;
-}
 h1,h2,h3,p{
   padding:5px 0;
   margin-bottom:0;
@@ -35,6 +35,7 @@ h1,h2,h3,p{
 p{
   margin:0;
 }
+
 a {
   color: #00B7FF;
 }
@@ -47,6 +48,7 @@ nav{
   padding:20px 0 0 10px;
   font-size: 18px;
 }
+
 nav li{
   float:left;
   list-style:none;
@@ -63,4 +65,3 @@ nav a.current, nav a:hover{
   background: #83cd29;
   color:#000;
 }
-
