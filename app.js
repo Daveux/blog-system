@@ -81,9 +81,18 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 app.use(function(req, res, next){
-    console.log(req.db);
   req.db = db;
+  console.log(req);
   next();
+});
+app.get('/', function(req, res, next) {
+    let db = req.db;
+    // console.log(db);
+    let posts = db.get('posts');
+    posts.find({}, {}, (posts, err) => {
+        res.render('index', { posts: posts });
+    });
+
 });
 
 module.exports = app;
