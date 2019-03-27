@@ -1,13 +1,13 @@
 var express = require('express');
 var router = express.Router();
 let mongo = require('mongodb');
-let db = require('monk')('localhost:27017/nodeblog');
+let db = require('monk')('localhost/nodeblog');
 //console.log(db);
 /* GET home page. */
 router.get('/', function(req, res, next) {
   let db = req.db;
   console.log(db);
-  let posts = db.get('posts');
+    let posts = db.get('posts');
   posts.find((posts, err) => {
     res.render('index', { posts: posts });
   });
