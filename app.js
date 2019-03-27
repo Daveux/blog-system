@@ -12,7 +12,7 @@ let moment = require('moment');
 let expressValidator = require('express-validator');
 
 let mongo = require('mongodb');
-let db = require('monk')('localhost/blog-system');
+let db = require('monk')('localhost/nodeblog');
 
 // let routes = require('./routes/index');
 // let users = require('./routes/users')
