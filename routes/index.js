@@ -5,6 +5,7 @@ let db = require('monk')('localhost/nodeblog');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   let db = req.db;
+  console.log(db);
   let posts = db.get('posts');
   posts.find((posts, err) => {
     res.render('index', { posts: posts });
