@@ -1,6 +1,7 @@
 let createError = require('http-errors');
 let express = require('express');
 let path = require('path');
+let bodyParser = require('body-parser');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 let indexRouter = require('./routes/index');
@@ -28,6 +29,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Express Session
