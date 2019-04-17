@@ -6,4 +6,7 @@ block content
      .post
        h1
          a(href="/posts/show/#{post._id }")
-           = post.title
+         = post.title
+         p.meta Posted in #{post.category} by #{post.author} on #{moment(post.date).format("DD-MM-YYYY")}
+         = post.body
+
